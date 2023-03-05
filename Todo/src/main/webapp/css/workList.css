@@ -1,0 +1,18 @@
+body h1 {
+	text-align: center;
+	font-weight: bold;
+}
+
+body div{
+	margin-left: 30%;
+	margin-right: 30%;
+}
+
+#work_list_btn_container{
+	display: flex;
+}
+
+#work_list_btn_container input {
+	padding: 10px 15px;
+	background-color: #0080ff;
+}
