@@ -39,6 +39,8 @@ public class Main extends HttpServlet {
 		
 		TodoDao dao = new TodoDao();
 		request.setAttribute("todoList", dao.getTodos());
+		request.setAttribute("doingList", dao.getDoings());
+		request.setAttribute("doneList", dao.getDones());
 		RequestDispatcher rd = request.getRequestDispatcher("jsp/main.jsp");
 		rd.forward(request, response);
 	}

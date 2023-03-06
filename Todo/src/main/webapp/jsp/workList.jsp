@@ -28,7 +28,7 @@
 	</div>
 	
 	<div id = "work_list_btn_container">
-		<input type="button" style="margin-right: auto; background-color: white;" value="< 이전"> 
+		<input type="button" style="margin-right: auto; background-color: white;" value="< 이전" > 
 		<input type="submit" style="margin-left: auto" value="제출">
 		<input type="reset" style="margin-left: auto" value="다시작성">
 	</div>
