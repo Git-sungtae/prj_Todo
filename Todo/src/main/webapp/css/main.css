@@ -57,3 +57,9 @@ body, html{
 	justify-content: space-between;
 	align-items: center;
 }
+
+.get_btn{
+	display: flex;
+	margin-bottom: 2%;
+	
+}

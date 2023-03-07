@@ -17,7 +17,11 @@
 			</form>
 		</div>
 	</div>
-	
+	<div class = "get_btn">
+			<form action="main">
+			<input type="submit" value="저장된 할일 가져오기">
+			</form>
+	</div>
 	<div id = "content_nav">
 		<div>
 			TODO<p>
@@ -30,8 +34,10 @@
 			DONE
 		</div>
 	</div>
+
 	
 	<div class = "outer_content_container">
+		
 		<div class = "content_container">
 			<c:forEach items="${ todoList }" var = "todoList">
 				<div style="border: 1px solid;">

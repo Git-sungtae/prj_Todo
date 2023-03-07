@@ -4,7 +4,7 @@ package db;
 import java.sql.Connection;
 import java.sql.DriverManager;
 public class Db {
-	public static String URL = "jdbc:oracle:thin:@localhost:1521:xe";
+	public static String URL = "jdbc:oracle:thin:@localhost:1521:orcl";
 	public static String DRIVER = "oracle.jdbc.driver.OracleDriver";
 	public static String UID = "scott";
 	public static String UPW = "1111";	
