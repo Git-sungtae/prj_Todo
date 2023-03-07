@@ -12,12 +12,12 @@
 	<form action="TodoAddServlet" method="post">
 	<div>
 		어떤 일인가요?<p>
-		<input type="text" name="work_title" placeholder="swift 공부하기(24자까지)" required="required">
+		<input type="text" name="work_title" placeholder="할일을 입력해주세요(24자까지)" required="required">
 	</div>
 	
 	<div>
 		누가 할 일인가요?<p>
-		<input type="text" name="work_name" placeholder="홍길동">
+		<input type="text" name="work_name" placeholder="할사람">
 	</div>
 
 	<div style="margin-bottom: 5%">
