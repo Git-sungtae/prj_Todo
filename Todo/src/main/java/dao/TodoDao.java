@@ -156,14 +156,17 @@ public class TodoDao {
 	}	
 	
 
-	public int updateTodo(TodoDto toDoDto) {
+	public int updateTodo(TodoDto toDoDto, int lrBtn) {
 		int result = 0;
-		String sql = "";
+		String sql = "update todo set type = ? where id = ?";
+		String type = null; 
 		
 		if (toDoDto.getType().equals("TODO")) {
-			sql = "update todo set type = 'DOING' where id = ?";
-		} else if(toDoDto.getType().equals("DOING")) {
-			sql = "update todo set type = 'DONE' where id = ?";
+			type = "DOING";
+		} else if (toDoDto.getType().equals("DOING")){
+			type = lrBtn > 0 ? "DONE" : "TODO";
+		} else if (toDoDto.getType().equals("DONE")) {
+			type = "DOING";
 		}
 		
 		try {
@@ -174,9 +177,8 @@ public class TodoDao {
 		
 		try (Connection conn = DriverManager.getConnection(Db.URL, Db.UID, Db.UPW);
 				PreparedStatement pstmt = conn.prepareStatement(sql)){
-			System.out.println("sql : " + sql);
-			pstmt.setLong(1, toDoDto.getId());
-			
+			pstmt.setString(1, type);
+			pstmt.setLong(2, toDoDto.getId());
 			if ((result = pstmt.executeUpdate()) > 0) {
 				System.out.println("업데이트 성공");
 			}

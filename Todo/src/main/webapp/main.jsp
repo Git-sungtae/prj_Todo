@@ -60,15 +60,28 @@
 					제목 : ${ doingList.title }<br>
 					작성자 : ${ doingList.name }
 					<div class="frm_container">
-						<form action="todoReverseServlet" method="post">
+						<%--<form action="todoReverseServlet" method="post">
 							<input type="hidden" name = "id" value="${ doingList.id }">
 							<input type="hidden" name = "type" value="${ doingList.type }">
-							<input type="submit" value="&lt;&lt;&lt;">
+							<input type="submit" value="<<<">
+						</form> --%>
+						<form action="main" method="post">
+							<input type="hidden" name = "id" value="${ doingList.id }">
+							<input type="hidden" name = "type" value="${ doingList.type }">
+							<input type="hidden" name = "lgBtn" value=-1>
+							<input type="submit" value="<<<">
 						</form>
-						<form action="todoUpdateServlet" method="post">
+						
+						<%-- <form action="todoUpdateServlet" method="post">
 							<input type="hidden" name = "id" value="${ doingList.id }">
 							<input type="hidden" name = "type" value="${ doingList.type }">
-							<input type="submit" value="&gt;&gt;&gt;">
+							<input type="submit" value=">>>">
+						</form> --%>
+						<form action="main" method="post">
+							<c:set var="id" value="${ doingList.id }" scope="request" />
+							<c:set var="type" value="${ doingList.type }" scope="request" />
+							<c:set var="lrBtn" value="right" scope="request" />
+							<input type="submit" value=">>>">
 						</form>
 					</div>
 				</div>

@@ -40,21 +40,21 @@ public class TodoUpdateServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//한글 깨짐 방지
-		request.setCharacterEncoding("utf-8");
-		response.setContentType("text/html;charset = utf-8");
-		
-		//id 파라미터 DTO에 셋팅
-		TodoDto dto = new TodoDto();
-		dto.setId(Long.parseLong(request.getParameter("id")));
-		dto.setType(request.getParameter("type"));
-		
-		//DAO의 update메서드 실행
-		TodoDao dao = new TodoDao();
-		if (dao.updateTodo(dto) > 0) {
-			RequestDispatcher rd = request.getRequestDispatcher("main");
-			rd.forward(request, response);
-		}
+//		//한글 깨짐 방지
+//		request.setCharacterEncoding("utf-8");
+//		response.setContentType("text/html;charset = utf-8");
+//		
+//		//id 파라미터 DTO에 셋팅
+//		TodoDto dto = new TodoDto();
+//		dto.setId(Long.parseLong(request.getParameter("id")));
+//		dto.setType(request.getParameter("type"));
+//		
+//		//DAO의 update메서드 실행
+//		TodoDao dao = new TodoDao();
+//		if (dao.updateTodo(dto) > 0) {
+//			RequestDispatcher rd = request.getRequestDispatcher("main");
+//			rd.forward(request, response);
+//		}
 	}
 
 }
