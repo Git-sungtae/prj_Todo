@@ -1,6 +1,7 @@
-package servlet;
+package todo.main.service.impl;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -9,20 +10,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dao.TodoDao;
-import dto.TodoDto;
+import todo.main.dao.MainDao;
+import todo.main.dto.MainDto;
 
 /**
- * Servlet implementation class TodoDeleteServlet
+ * Servlet implementation class TodoUpdateServlet
  */
-@WebServlet("/todoDeleteServlet")
-public class TodoDeleteServlet extends HttpServlet {
+@WebServlet("/todoUpdateServlet")
+public class TodoUpdateServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public TodoDeleteServlet() {
+    public TodoUpdateServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -39,20 +40,21 @@ public class TodoDeleteServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//한글 깨짐 방지
-		request.setCharacterEncoding("utf-8");
-		response.setContentType("text/html;charset = utf-8");
-		
-		TodoDto dto = new TodoDto();
-		dto.setId(Long.parseLong(request.getParameter("id")));
-		dto.setType(request.getParameter("type"));
-		
-		TodoDao dao = new TodoDao();
-		if (dao.deleteTodo(dto) > 0) {
-			RequestDispatcher rd = request.getRequestDispatcher("main");
-			rd.forward(request, response);
-		}
-		
+//		//한글 깨짐 방지
+//		request.setCharacterEncoding("utf-8");
+//		response.setContentType("text/html;charset = utf-8");
+//		
+//		//id 파라미터 DTO에 셋팅
+//		TodoDto dto = new TodoDto();
+//		dto.setId(Long.parseLong(request.getParameter("id")));
+//		dto.setType(request.getParameter("type"));
+//		
+//		//DAO의 update메서드 실행
+//		TodoDao dao = new TodoDao();
+//		if (dao.updateTodo(dto) > 0) {
+//			RequestDispatcher rd = request.getRequestDispatcher("main");
+//			rd.forward(request, response);
+//		}
 	}
 
 }

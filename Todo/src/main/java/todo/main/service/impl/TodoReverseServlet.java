@@ -1,4 +1,4 @@
-package servlet;
+package todo.main.service.impl;
 
 import java.io.IOException;
 
@@ -9,8 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dao.TodoDao;
-import dto.TodoDto;
+import todo.main.dao.MainDao;
+import todo.main.dto.MainDto;
 
 /**
  * Servlet implementation class TodoReverseServlet
@@ -44,12 +44,12 @@ public class TodoReverseServlet extends HttpServlet {
 		response.setContentType("text/html;charset = utf-8");
 		
 		//id 파라미터 DTO에 셋팅
-		TodoDto dto = new TodoDto();
+		MainDto dto = new MainDto();
 		dto.setId(Long.parseLong(request.getParameter("id")));
 		dto.setType(request.getParameter("type"));
 		
 		//DAO의 update메서드 실행
-		TodoDao dao = new TodoDao();
+		MainDao dao = new MainDao();
 		if (dao.reverseUpdateTodo(dto) > 0) {
 			RequestDispatcher rd = request.getRequestDispatcher("main");
 			rd.forward(request, response);

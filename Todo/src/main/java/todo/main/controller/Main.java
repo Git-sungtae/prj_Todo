@@ -1,4 +1,4 @@
-package servlet;
+package todo.main.controller;
 
 import java.io.IOException;
 
@@ -8,8 +8,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dao.TodoDao;
-import dto.TodoDto;
+import todo.main.dao.MainDao;
+import todo.main.dto.MainDto;
 
 /**
  * Servlet implementation class Main
@@ -35,7 +35,7 @@ public class Main extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 		response.setContentType("text/html;charset = utf-8");
 		
-		TodoDao dao = new TodoDao();
+		MainDao dao = new MainDao();
 		request.setAttribute("todoList", dao.getTodos());
 		request.setAttribute("doingList", dao.getDoings());
 		request.setAttribute("doneList", dao.getDones());
@@ -50,8 +50,8 @@ public class Main extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 		response.setContentType("text/html;charset = utf-8");
 		
-		TodoDto dto = new TodoDto();
-		TodoDao dao = new TodoDao();
+		MainDto dto = new MainDto();
+		MainDao dao = new MainDao();
 		
 		dto.setId(Long.parseLong(request.getParameter("id")));
 		dto.setType(request.getParameter("type"));

@@ -1,4 +1,4 @@
-package servlet;
+package todo.main.service.impl;
 
 import java.io.IOException;
 
@@ -9,17 +9,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import todo.main.dao.MainDao;
+import todo.main.dto.MainDto;
+
 /**
- * Servlet implementation class TodoFormServlet
+ * Servlet implementation class TodoDeleteServlet
  */
-@WebServlet("/TodoFormServlet")
-public class TodoFormServlet extends HttpServlet {
+@WebServlet("/todoDeleteServlet")
+public class TodoDeleteServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public TodoFormServlet() {
+    public TodoDeleteServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -28,16 +31,28 @@ public class TodoFormServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		RequestDispatcher rd = request.getRequestDispatcher("/workList.jsp");
-		rd.forward(request, response);
+		// TODO Auto-generated method stub
+		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+		//한글 깨짐 방지
+		request.setCharacterEncoding("utf-8");
+		response.setContentType("text/html;charset = utf-8");
+		
+		MainDto dto = new MainDto();
+		dto.setId(Long.parseLong(request.getParameter("id")));
+		dto.setType(request.getParameter("type"));
+		
+		MainDao dao = new MainDao();
+		if (dao.deleteTodo(dto) > 0) {
+			RequestDispatcher rd = request.getRequestDispatcher("main");
+			rd.forward(request, response);
+		}
+		
 	}
 
 }

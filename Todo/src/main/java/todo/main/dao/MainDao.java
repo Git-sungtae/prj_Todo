@@ -1,4 +1,4 @@
-package dao;
+package todo.main.dao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -8,12 +8,12 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import db.Db;
-import dto.TodoDto;
+import todo.db.Db;
+import todo.main.dto.MainDto;
 
-public class TodoDao {
+public class MainDao {
 
-	public int addTodo(TodoDto toDoDto) {
+	public int addTodo(MainDto toDoDto) {
 		int added = 0;
 		
 		String name = toDoDto.getName();
@@ -42,13 +42,12 @@ public class TodoDao {
 		
 		System.out.println(added);
 		return added;
-		
 	}
 
 
 
-	public List<TodoDto> getTodos() {
-		ArrayList<TodoDto> todoList = new ArrayList<>();
+	public List<MainDto> getTodos() {
+		ArrayList<MainDto> todoList = new ArrayList<>();
 		String sql = "select id, title, name, sequence, type, TO_CHAR(regdate,'YY\"년\"MM\"월\"DD\"일\"HH24\"시\"mm\"분\"') from todo where type = 'TODO'";
 		
 		try {
@@ -62,7 +61,7 @@ public class TodoDao {
 				ResultSet rs = pstmt.executeQuery()){
 				
 				while(rs.next()) {
-				 TodoDto todoDto = new TodoDto();
+				 MainDto todoDto = new MainDto();
 				 
 				 todoDto.setId(rs.getInt(1));
 				 todoDto.setTitle(rs.getString(2));
@@ -83,8 +82,8 @@ public class TodoDao {
 		return todoList;
 	}
 
-	public List<TodoDto> getDoings() {
-		ArrayList<TodoDto> doingList = new ArrayList<>();
+	public List<MainDto> getDoings() {
+		ArrayList<MainDto> doingList = new ArrayList<>();
 		String sql = "select id, title, name, sequence, type, TO_CHAR(regdate,'YY\"년\"MM\"월\"DD\"일\"HH24\"시\"mm\"분\"') from todo where type = 'DOING'";
 		
 		try {
@@ -98,7 +97,7 @@ public class TodoDao {
 				ResultSet rs = pstmt.executeQuery()){
 				
 				while(rs.next()) {
-				 TodoDto todoDto = new TodoDto();
+				 MainDto todoDto = new MainDto();
 				 
 				 todoDto.setId(rs.getInt(1));
 				 todoDto.setTitle(rs.getString(2));
@@ -119,8 +118,8 @@ public class TodoDao {
 		return doingList;
 	}	
 
-	public List<TodoDto> getDones() {
-		ArrayList<TodoDto> doneList = new ArrayList<>();
+	public List<MainDto> getDones() {
+		ArrayList<MainDto> doneList = new ArrayList<>();
 		String sql = "select id, title, name, sequence, type, TO_CHAR(regdate,'YY\"년\"MM\"월\"DD\"일\"HH24\"시\"mm\"분\"') from todo where type = 'DONE'";
 		
 		try {
@@ -134,7 +133,7 @@ public class TodoDao {
 				ResultSet rs = pstmt.executeQuery()){
 				
 				while(rs.next()) {
-				 TodoDto todoDto = new TodoDto();
+				 MainDto todoDto = new MainDto();
 				 
 				 todoDto.setId(rs.getInt(1));
 				 todoDto.setTitle(rs.getString(2));
@@ -156,7 +155,7 @@ public class TodoDao {
 	}	
 	
 
-	public int updateTodo(TodoDto toDoDto, int lrBtn) {
+	public int updateTodo(MainDto toDoDto, int lrBtn) {
 		int result = 0;
 		String sql = "update todo set type = ? where id = ?";
 		String type = null; 
@@ -190,7 +189,7 @@ public class TodoDao {
 		return result;
 	}
 
-	public int reverseUpdateTodo(TodoDto toDoDto) {
+	public int reverseUpdateTodo(MainDto toDoDto) {
 		int result = 0;
 		String sql = "";
 		
@@ -222,7 +221,7 @@ public class TodoDao {
 		return result;
 	}
 	
-	public int deleteTodo(TodoDto todoDto) {
+	public int deleteTodo(MainDto todoDto) {
 		int result = 0;
 		String sql = "delete from todo where id = ?";
 		

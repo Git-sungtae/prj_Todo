@@ -12,8 +12,8 @@
 	<div id="nav_container">
 		<h2>나의 해야할 일들</h2>
 		<div class="header">
-			<form action="TodoFormServlet" id="toServlet_form">
-				<button type="submit" class="todoWriteBtn" form="toServlet_form">TO_DO 쓰러가기</button>
+			<form action="addTodoController" id="addTodoController">
+				<button type="submit" class="todoWriteBtn" form="addTodoController">TO_DO 쓰러가기</button>
 			</form>
 		</div>
 	</div>

@@ -1,9 +1,8 @@
-package dto;
+package todo.main.dto;
 
-public class TodoDto {
+public class MainDto {
 	long id;
 	String name;
-	String regDate;
 	int sequence;
 	String title;
 	String type;
