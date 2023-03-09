@@ -8,7 +8,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import todo.db.Db;
+import todo.db.JdbcUtil;
 import todo.main.dto.MainDto;
 
 public class MainDao {
@@ -26,12 +26,12 @@ public class MainDao {
 		
 		System.out.println(sql);
 		try {
-			Class.forName(Db.DRIVER);
+			Class.forName(JdbcUtil.DRIVER);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		
-		try (Connection conn = DriverManager.getConnection(Db.URL, Db.UID, Db.UPW);
+		try (Connection conn = DriverManager.getConnection(JdbcUtil.URL, JdbcUtil.UID, JdbcUtil.UPW);
 				Statement stmt = conn.createStatement()){
 //			PreparedStatement pstmt = conn.prepareStatement(sql2);
 			added = stmt.executeUpdate(sql);
@@ -51,12 +51,12 @@ public class MainDao {
 		String sql = "select id, title, name, sequence, type, TO_CHAR(regdate,'YY\"년\"MM\"월\"DD\"일\"HH24\"시\"mm\"분\"') from todo where type = 'TODO'";
 		
 		try {
-			Class.forName(Db.DRIVER);
+			Class.forName(JdbcUtil.DRIVER);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		
-		try (Connection conn = DriverManager.getConnection(Db.URL, Db.UID, Db.UPW);
+		try (Connection conn = DriverManager.getConnection(JdbcUtil.URL, JdbcUtil.UID, JdbcUtil.UPW);
 				PreparedStatement pstmt = conn.prepareStatement(sql);
 				ResultSet rs = pstmt.executeQuery()){
 				
@@ -87,12 +87,12 @@ public class MainDao {
 		String sql = "select id, title, name, sequence, type, TO_CHAR(regdate,'YY\"년\"MM\"월\"DD\"일\"HH24\"시\"mm\"분\"') from todo where type = 'DOING'";
 		
 		try {
-			Class.forName(Db.DRIVER);
+			Class.forName(JdbcUtil.DRIVER);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		
-		try (Connection conn = DriverManager.getConnection(Db.URL, Db.UID, Db.UPW);
+		try (Connection conn = DriverManager.getConnection(JdbcUtil.URL, JdbcUtil.UID, JdbcUtil.UPW);
 				PreparedStatement pstmt = conn.prepareStatement(sql);
 				ResultSet rs = pstmt.executeQuery()){
 				
@@ -123,12 +123,12 @@ public class MainDao {
 		String sql = "select id, title, name, sequence, type, TO_CHAR(regdate,'YY\"년\"MM\"월\"DD\"일\"HH24\"시\"mm\"분\"') from todo where type = 'DONE'";
 		
 		try {
-			Class.forName(Db.DRIVER);
+			Class.forName(JdbcUtil.DRIVER);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		
-		try (Connection conn = DriverManager.getConnection(Db.URL, Db.UID, Db.UPW);
+		try (Connection conn = DriverManager.getConnection(JdbcUtil.URL, JdbcUtil.UID, JdbcUtil.UPW);
 				PreparedStatement pstmt = conn.prepareStatement(sql);
 				ResultSet rs = pstmt.executeQuery()){
 				
@@ -169,12 +169,12 @@ public class MainDao {
 		}
 		
 		try {
-			Class.forName(Db.DRIVER);
+			Class.forName(JdbcUtil.DRIVER);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		
-		try (Connection conn = DriverManager.getConnection(Db.URL, Db.UID, Db.UPW);
+		try (Connection conn = DriverManager.getConnection(JdbcUtil.URL, JdbcUtil.UID, JdbcUtil.UPW);
 				PreparedStatement pstmt = conn.prepareStatement(sql)){
 			pstmt.setString(1, type);
 			pstmt.setLong(2, toDoDto.getId());
@@ -200,12 +200,12 @@ public class MainDao {
 		}
 		
 		try {
-			Class.forName(Db.DRIVER);
+			Class.forName(JdbcUtil.DRIVER);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		
-		try (Connection conn = DriverManager.getConnection(Db.URL, Db.UID, Db.UPW);
+		try (Connection conn = DriverManager.getConnection(JdbcUtil.URL, JdbcUtil.UID, JdbcUtil.UPW);
 				PreparedStatement pstmt = conn.prepareStatement(sql)){
 			System.out.println("sql : " + sql);
 			pstmt.setLong(1, toDoDto.getId());
@@ -226,12 +226,12 @@ public class MainDao {
 		String sql = "delete from todo where id = ?";
 		
 		try {
-			Class.forName(Db.DRIVER);
+			Class.forName(JdbcUtil.DRIVER);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		
-		try (Connection conn = DriverManager.getConnection(Db.URL, Db.UID, Db.UPW);
+		try (Connection conn = DriverManager.getConnection(JdbcUtil.URL, JdbcUtil.UID, JdbcUtil.UPW);
 				PreparedStatement pstmt = conn.prepareStatement(sql)){
 			System.out.println("sql : " + sql);
 			pstmt.setLong(1, todoDto.getId());

@@ -59,7 +59,7 @@ public class Main extends HttpServlet {
 		
 		
 		int result = 0;
-		result = dao.updateTodo(dto,  request.getParameter("lrBtn"));
+//		result = dao.updateTodo(dto,  request.getParameter("lrBtn"));
 		
 		if (result > 0) {
 			System.out.println("해당하는 dao 호출 및 데이터 업데이트 완료");

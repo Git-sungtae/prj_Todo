@@ -6,6 +6,7 @@ public class MainDto {
 	int sequence;
 	String title;
 	String type;
+	String regDate;
 	
 	public long getId() {
 		return id;
