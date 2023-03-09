@@ -5,11 +5,11 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel = "stylesheet" href="/Todo/css/workList.css">
+<link rel = "stylesheet" href="/Todo/css/register.css">
 </head>
 <body>
 	<h1>할일 등록</h1>
-	<form action="addTodoController" method="post">
+	<form action="registerController" method="post">
 	<div>
 		어떤 일인가요?<p>
 		<input type="text" name="title" placeholder="할일을 입력해주세요(24자까지)" required="required">
@@ -33,10 +33,5 @@
 		<input type="reset" style="margin-left: auto" value="다시작성">
 	</div>
 	</form>
-	
-	
-	
-	
-	
 </body>
 </html>

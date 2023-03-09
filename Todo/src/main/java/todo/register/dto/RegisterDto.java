@@ -1,6 +1,6 @@
-package todo.addTodo.dto;
+package todo.register.dto;
 
-public class AddTodoDto {
+public class RegisterDto {
 	String name;
 	int sequence;
 	String title;

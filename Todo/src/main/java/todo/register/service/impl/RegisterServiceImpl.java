@@ -1,23 +1,22 @@
-package todo.addTodo.service.impl;
+package todo.register.service.impl;
 
 import java.sql.Connection;
 
-import todo.addTodo.dao.AddtodoDao;
-import todo.addTodo.dto.AddTodoDto;
-import todo.addTodo.service.AddTodoService;
 import todo.db.JdbcUtil;
+import todo.register.dao.RegisterDao;
+import todo.register.dto.RegisterDto;
+import todo.register.service.RegisterService;
 
-public class AddtodoServiceImpl implements AddTodoService {
+public class RegisterServiceImpl implements RegisterService {
 	
 	@Override
-	public int insertTodo(AddTodoDto dto) {
+	public int registerTodo(RegisterDto dto) {
 		Connection conn = null;
 		int result = 0;
 		
 		try {
-			System.out.println("여기까진왔니?");
 			conn = JdbcUtil.getConnection();
-			AddtodoDao dao = new AddtodoDao();
+			RegisterDao dao = new RegisterDao();
 			result = dao.addTodo(dto, conn);
 			if (result > 0) {
 				conn.commit();

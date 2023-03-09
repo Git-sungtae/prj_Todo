@@ -5,7 +5,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class JdbcUtil {
-	public static String URL = "jdbc:oracle:thin:@localhost:1521:orcl";
+	public static String URL = "jdbc:oracle:thin:@localhost:1521:xe";
 	public static String DRIVER = "oracle.jdbc.driver.OracleDriver";
 	public static String UID = "scott";
 	public static String UPW = "1111";	

@@ -1,17 +1,17 @@
-package todo.addTodo.dao;
+package todo.register.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 
-import todo.addTodo.dto.AddTodoDto;
+import todo.register.dto.RegisterDto;
 
-public class AddtodoDao {
+public class RegisterDao {
 	
-	public int addTodo(AddTodoDto addTodoDto, Connection conn) {
+	public int addTodo(RegisterDto registerDto, Connection conn) {
 		int result = 0;
-		String title = addTodoDto.getTitle();
-		String name = addTodoDto.getName();
-		int sequence = addTodoDto.getSequence();
+		String title = registerDto.getTitle();
+		String name = registerDto.getName();
+		int sequence = registerDto.getSequence();
 		String sql = "insert into todo(title, name, sequence) values(?, ?, ?)";
 		
 		System.out.println(sql);

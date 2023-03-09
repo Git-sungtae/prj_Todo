@@ -52,7 +52,7 @@
 					</div>
 				</div>
 			</c:forEach>
-		</div>
+		</div>	
 		
 		<div class = "content_container">
 			<c:forEach items="${ doingList }" var = "doingList">
