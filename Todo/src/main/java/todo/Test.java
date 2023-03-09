@@ -5,6 +5,7 @@ import java.util.ArrayList;
 public class Test {
 	String name;
 	int age;
+	String age2;
 	
 	public Test(String name, int age) {
 		this.name = name;
