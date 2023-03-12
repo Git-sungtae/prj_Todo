@@ -182,6 +182,9 @@ public class MainDao {
 
 		try (Connection conn = DriverManager.getConnection(JdbcUtil.URL, JdbcUtil.UID, JdbcUtil.UPW);
 				PreparedStatement pstmt = conn.prepareStatement(sql)) {
+			
+			System.out.println("dao type : " + type);
+			System.out.println("dao id : " + id);
 			if (type.equals("DOING")) {
 				pstmt.setString(1, "TODO");
 			} else if(type.equals("DONE")) {

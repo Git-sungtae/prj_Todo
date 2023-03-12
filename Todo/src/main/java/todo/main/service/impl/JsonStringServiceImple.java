@@ -23,4 +23,10 @@ public class JsonStringServiceImple implements JsonStringService {
 		return json.toJSONString();
 	}
 	
+	public String getJsonById(String id, MainDao mainDao) {
+		JSONObject json = mainDao.getTodosById(id);
+		//json객체를 string으로 변환
+		return json.toJSONString();
+	}
+	
 }

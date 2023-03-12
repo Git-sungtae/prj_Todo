@@ -42,19 +42,18 @@ public class BtnController extends HttpServlet {
 		String type = request.getParameter("type");
 		String btnType = request.getParameter("btnType");
 		
-		System.out.println("btnType : " + btnType);
-		System.out.println("type : " + type);
-		System.out.println("id : " + id);
+		System.out.println("Controller btnType : " + btnType);
+		System.out.println("Controller type : " + type);
+		System.out.println("Controller id : " + id);
 		
 		String jsonString = "";
 		
-		if (btnType.equals("right")) {
-			BtnService rightBtn = new BtnServiceImpl();
+		BtnServiceImpl btn = new BtnServiceImpl();
+		if (btnType.toLowerCase().equals("right")) {
 			//jsonString을 리턴할 서비스 호출
-			jsonString = rightBtn.changeTypeRight(id, type);
-		} else if (btnType.equals("left")) {
-			BtnService leftBtn = new BtnServiceImpl();
-			jsonString = leftBtn.changeTypeLeft(id, type);
+			jsonString = btn.changeTypeRight(id, type);
+		} else if (btnType.toLowerCase().equals("left")) {
+			jsonString = btn.changeTypeLeft(id, type);
 		}
 		
 		

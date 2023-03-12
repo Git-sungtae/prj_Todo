@@ -74,8 +74,8 @@ $(function(){
 	//동적으로 추가된것들에 대한 호출은 $(document).on()을 사용할 것
 	$(document).on('click', '.rightBtn', function(){
 		let $this = $(this);
-	    let id = $('.resultBox input[id = "idGetter"]').val();
-	    let type = $('.resultBox').parent().attr('id');
+	    let id = $this.parent().prev().val();
+	    let type = $this.parent().parent().parent().attr('id');
 	    console.log('id = ' + id);
 	    console.log('type = ' + type);
 	    $.ajax({
@@ -121,8 +121,8 @@ $(function(){
 	
 	$(document).on('click', '.leftBtn', function(){
 		let $this = $(this);
-	    let id = $('.resultBox input[id = "idGetter"]').val();
-	    let type = $('.resultBox').parent().attr('id');
+	    let id = $this.parent().prev().val();
+	    let type = $this.parent().parent().parent().attr('id');
 	    console.log('id = ' + id);
 	    console.log('type = ' + type);
 	    $.ajax({
