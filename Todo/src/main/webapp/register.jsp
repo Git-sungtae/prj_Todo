@@ -17,12 +17,12 @@
 	
 	<div>
 		누가 할 일인가요?<p>
-		<input type="text" name="name" placeholder="할사람">
+		<input type="text" name="name" placeholder="할사람" required="required">
 	</div>
 
 	<div style="margin-bottom: 5%">
 		우선순위를 선택하세요<p>
-		<input type="radio" name="sequence" value="1">1순위
+		<input type="radio" name="sequence" value="1" checked="checked">1순위
 		<input type="radio" name="sequence" value="2">2순위
 		<input type="radio" name="sequence" value="3">3순위
 	</div>

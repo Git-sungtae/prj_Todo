@@ -12,7 +12,7 @@
 	<div id="nav_container">
 		<h2>나의 해야할 일들</h2>
 		<div class="header">
-			<form action="addTodoController" id="addTodoController">
+			<form  action="register.jsp" id="addTodoController">
 				<button type="submit" class="todoWriteBtn" form="addTodoController">TO_DO 쓰러가기</button>
 			</form>
 		</div>
@@ -37,52 +37,71 @@
 
 	
 	<div class = "outer_content_container">
+	
+		
+		<div class = "content_container" id = "asdasd">
+			<div id = TODO>
+			</div>
+		</div>
 		
 		<div class = "content_container">
-			<c:forEach items="${ todoList }" var = "todoList">
-				<div style="border: 1px solid;" id="data${todoList.id}">
+			<div id = DOING>
+			</div>
+		</div>
+		
+		<div class = "content_container" style="margin-right: 0;">
+			<div id = DONE>
+			</div>
+		</div>
+	</div>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src = "./js/main.js"></script>
+</body>
+</html>		
+	<%-- 		<c:forEach items="${ todoList }" var = "todoList">
+				<div style="border: 1px solid;" >
 					제목 : ${ todoList.title }<br>
 					작성자 : ${ todoList.name }
 					<div class="frm_container">
-						<%-- <form action="todoUpdateServlet" method="post" style="margin-left: auto;">
+						<form action="todoUpdateServlet" method="post" style="margin-left: auto;">
 							<input type="hidden" name = "id" value="${ todoList.id }">
 							<input type="hidden" name = "type" value="${ todoList.type }">
 							<input type="submit" value="&gt;&gt;&gt;" class="data${todoList.id}" onclick="move(this)">
-						</form> --%>
+						</form>
 						<div>
 							<input type="hidden" name = "id" value="${ todoList.id }">
 							<input type="hidden" name = "type" value="${ todoList.type }">
 							<input type="submit" value="&gt;&gt;&gt;" class="data${todoList.id}" onclick="move(this)">
 						</div>
-					</div>
+					</div> 
 				</div>
-			</c:forEach>
-		</div>	
+			</c:forEach>--%>
+	
 		
-		<div class = "content_container">
-			<c:forEach items="${ doingList }" var = "doingList">
+
+<%-- 			<c:forEach items="${ doingList }" var = "doingList">
 				<div style="border: 1px solid;" id="data${doingList.id}">
 					제목 : ${ doingList.title }<br>
 					작성자 : ${ doingList.name }
-					<div class="frm_container">
+					<div class="frm_container"> --%>
 						<%--<form action="todoReverseServlet" method="post">
 							<input type="hidden" name = "id" value="${ doingList.id }">
 							<input type="hidden" name = "type" value="${ doingList.type }">
 							<input type="submit" value="<<<">
 						</form> --%>
-						<form action="main" method="post">
+<%-- 						<form action="main" method="post">
 							<input type="hidden" name = "id" value="${ doingList.id }">
 							<input type="hidden" name = "type" value="${ doingList.type }">
 							<input type="hidden" name = "lgBtn" value=-1>
 							<input type="submit" value="<<<" class="data${doingList.id}" onclick="move(this)">
-						</form>
+						</form> --%>
 						
 						<%-- <form action="todoUpdateServlet" method="post">
 							<input type="hidden" name = "id" value="${ doingList.id }">
 							<input type="hidden" name = "type" value="${ doingList.type }">
 							<input type="submit" value=">>>">
 						</form> --%>
-						<form action="main" method="post">
+<%-- 						<form action="main" method="post">
 							<c:set var="id" value="${ doingList.id }" scope="request" />
 							<c:set var="type" value="${ doingList.type }" scope="request" />
 							<c:set var="lrBtn" value="right" scope="request" />
@@ -91,9 +110,9 @@
 					</div>
 				</div>
 			</c:forEach>	
-		</div>
 		
-		<div class = "content_container" style="margin-right: 0;">
+		
+		
 			<c:forEach items="${ doneList }" var = "doneList">
 				<div style="border: 1px solid;" id="data${doneList.id}">
 					제목 : ${ doneList.title }<br>
@@ -112,8 +131,4 @@
 					</div>
 				</div>
 			</c:forEach>		
-		</div>
-	</div>
-<script type="text/javascript" src="javaScript/main.js"></script>
-</body>
-</html>
+		</div> --%>

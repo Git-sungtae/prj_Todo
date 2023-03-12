@@ -1,6 +1,7 @@
 package todo.main.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,6 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import todo.main.dao.MainDao;
 import todo.main.dto.MainDto;
+import todo.main.service.JsonStringService;
+import todo.main.service.impl.JsonStringServiceImple;
 
 /**
  * Servlet implementation class Main
@@ -35,11 +38,16 @@ public class Main extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 		response.setContentType("text/html;charset = utf-8");
 		
-		MainDao dao = new MainDao();
-		request.setAttribute("todoList", dao.getTodos());
-		request.setAttribute("doingList", dao.getDoings());
-		request.setAttribute("doneList", dao.getDones());
-		request.getRequestDispatcher("/main.jsp").forward(request, response);
+		String type = request.getParameter("type");
+		JsonStringService json = new JsonStringServiceImple();
+			//jsonString을 리턴할 서비스 호출
+		String jsString = json.getJsonByType(type);
+
+		//아작스로 전달
+		PrintWriter out = response.getWriter();
+		out.print(jsString);
+		out.flush();
+		
 	}
 
 	/**
